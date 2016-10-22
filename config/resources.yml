@@ -21,9 +21,38 @@ ProductTable:
     ProvisionedThroughput:
       ReadCapacityUnits: 5
       WriteCapacityUnits: 5
+CustomerTable:
+  Type: AWS::DynamoDB::Table
+  Properties:
+    TableName: ${self:custom.prefix}-customer
+    AttributeDefinitions:
+      - AttributeName: customerId
+        AttributeType: S
+    KeySchema:
+      - AttributeName: customerId
+        KeyType: HASH
+    ProvisionedThroughput:
+      ReadCapacityUnits: 5
+      WriteCapacityUnits: 5
+CartTable:
+  Type: AWS::DynamoDB::Table
+  Properties:
+    TableName: ${self:custom.prefix}-cart
+    AttributeDefinitions:
+      - AttributeName: cartId
+        AttributeType: S
+    KeySchema:
+      - AttributeName: cartId
+        KeyType: HASH
+    ProvisionedThroughput:
+      ReadCapacityUnits: 5
+      WriteCapacityUnits: 5
 DynamoDBIamPolicy:
   Type: AWS::IAM::Policy
-  DependsOn: ProductTable
+  DependsOn: 
+    - ProductTable
+    - CustomerTable
+    - CartTable
   Properties:
     PolicyName: lambda-dynamodb
     PolicyDocument:
@@ -33,6 +62,9 @@ DynamoDBIamPolicy:
           Action:
             - dynamodb:GetItem
             - dynamodb:PutItem
-          Resource: arn:aws:dynamodb:*:*:table/${self:custom.prefix}-product
+          Resource:
+            - arn:aws:dynamodb:*:*:table/${self:custom.prefix}-product
+            - arn:aws:dynamodb:*:*:table/${self:custom.prefix}-customer
+            - arn:aws:dynamodb:*:*:table/${self:custom.prefix}-cart
     Roles:
       - Ref: IamRoleLambdaExecution
