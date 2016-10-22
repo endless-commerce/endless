@@ -11,12 +11,18 @@
 
 service: endless
 
+package:
+  exclude:
+    - README.md
+    - .git
+
 provider: 
   name: aws
   runtime: python2.7
   stage: dev
   region: us-east-1
 
+    
 custom: ${file(config/config.yml)}
 
 functions:
