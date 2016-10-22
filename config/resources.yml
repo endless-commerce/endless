@@ -1,0 +1,34 @@
+# Resources file
+
+FrontendBucket:
+  Type: AWS::S3::Bucket
+  Properties:
+     BucketName: ${self:provider.stage}-${self:custom.projectName}-frontendbucket
+DynamoDbTable:
+  Type: AWS::DynamoDB::Table
+  Properties:
+    TableName: my-table
+    AttributeDefinitions:
+      - AttributeName: my_key
+        AttributeType: S
+    KeySchema:
+      - AttributeName: my_key
+        KeyType: HASH
+    ProvisionedThroughput:
+      ReadCapacityUnits: 5
+      WriteCapacityUnits: 5
+DynamoDBIamPolicy:
+  Type: AWS::IAM::Policy
+  DependsOn: DynamoDbTable
+  Properties:
+    PolicyName: lambda-dynamodb
+    PolicyDocument:
+      Version: '2012-10-17'
+      Statement:
+        - Effect: Allow
+          Action:
+            - dynamodb:GetItem
+            - dynamodb:PutItem
+          Resource: arn:aws:dynamodb:*:*:table/my-table
+    Roles:
+      - Ref: IamRoleLambdaExecution
