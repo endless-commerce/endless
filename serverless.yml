@@ -26,6 +26,12 @@ functions:
       - http:
           path: product/hello
           method: get
+  productAdd:
+    handler: core/product.add
+    events:
+      - http:
+          path: product/add
+          method: get
   customerHello:
     handler: core/customer.hello
     events:

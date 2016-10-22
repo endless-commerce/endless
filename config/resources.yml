@@ -3,23 +3,27 @@
 FrontendBucket:
   Type: AWS::S3::Bucket
   Properties:
-     BucketName: ${self:provider.stage}-${self:custom.projectName}-frontendbucket
-DynamoDbTable:
+     BucketName: ${self:custom.prefix}-frontend
+MediaBucket:
+  Type: AWS::S3::Bucket
+  Properties:
+     BucketName: ${self:custom.prefix}-media
+ProductTable:
   Type: AWS::DynamoDB::Table
   Properties:
-    TableName: my-table
+    TableName: ${self:custom.prefix}-product
     AttributeDefinitions:
-      - AttributeName: my_key
+      - AttributeName: sku
         AttributeType: S
     KeySchema:
-      - AttributeName: my_key
+      - AttributeName: sku
         KeyType: HASH
     ProvisionedThroughput:
       ReadCapacityUnits: 5
       WriteCapacityUnits: 5
 DynamoDBIamPolicy:
   Type: AWS::IAM::Policy
-  DependsOn: DynamoDbTable
+  DependsOn: ProductTable
   Properties:
     PolicyName: lambda-dynamodb
     PolicyDocument:
@@ -29,6 +33,6 @@ DynamoDBIamPolicy:
           Action:
             - dynamodb:GetItem
             - dynamodb:PutItem
-          Resource: arn:aws:dynamodb:*:*:table/my-table
+          Resource: arn:aws:dynamodb:*:*:table/${self:custom.prefix}-product
     Roles:
       - Ref: IamRoleLambdaExecution
