@@ -1,8 +1,12 @@
 import json
 import boto3
+import yaml
+
+with open('../config/config.yml', 'r') as f:
+    config = yaml.load(f)
 
 dynamodb_client = boto3.client('dynamodb')
-table_name = 'dev-demostore-product'
+table_name = config["prefix"] + '-product'
 
 def hello(event, context):
     body = {
@@ -30,7 +34,7 @@ def add(event, context):
         "message": "Product added"
     }
     
-    item = {'sku': {'S': '123'},'name': {'S': 'Product Name'},'price': {'N': '10.23'},'description': {'S': 'Product description'}}
+    item = {'productID': {'S': '123'},'name': {'S': 'Product Name'},'price': {'N': '10.23'},'description': {'S': 'Product description'}}
     dynamodb_client.put_item(TableName=table_name, Item=item)
     
     response = {

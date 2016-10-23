@@ -13,10 +13,10 @@ ProductTable:
   Properties:
     TableName: ${self:custom.prefix}-product
     AttributeDefinitions:
-      - AttributeName: sku
+      - AttributeName: productID
         AttributeType: S
     KeySchema:
-      - AttributeName: sku
+      - AttributeName: productID
         KeyType: HASH
     ProvisionedThroughput:
       ReadCapacityUnits: 5
@@ -26,10 +26,10 @@ CustomerTable:
   Properties:
     TableName: ${self:custom.prefix}-customer
     AttributeDefinitions:
-      - AttributeName: customerId
+      - AttributeName: customerID
         AttributeType: S
     KeySchema:
-      - AttributeName: customerId
+      - AttributeName: customerID
         KeyType: HASH
     ProvisionedThroughput:
       ReadCapacityUnits: 5
@@ -39,10 +39,10 @@ CartTable:
   Properties:
     TableName: ${self:custom.prefix}-cart
     AttributeDefinitions:
-      - AttributeName: cartId
+      - AttributeName: cartID
         AttributeType: S
     KeySchema:
-      - AttributeName: cartId
+      - AttributeName: cartID
         KeyType: HASH
     ProvisionedThroughput:
       ReadCapacityUnits: 5
