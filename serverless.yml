@@ -22,9 +22,18 @@ provider:
   stage: dev
   region: us-east-1
 
+plugins:
+  - s3-deploy-plugin
     
+resources:
+  Resources: ${file(config/resources.yml)}    
+   
 custom: ${file(config/config.yml)}
 
+
+#
+# Functions
+#
 functions:
   productHello:
     handler: core/product.hello
@@ -50,6 +59,3 @@ functions:
       - http:
           path: cart/hello
           method: get
-
-resources:
-  Resources: ${file(config/resources.yml)}
