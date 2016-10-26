@@ -1,0 +1,174 @@
+.memenu
+{margin:0;padding:0;width:100%;list-style:none;display:inline-block;position:relative;font-family:Calibri,Arial;font-size:15px}
+.memenu li{display:inline-block;text-align:left;}
+ul.memenu.skyblue {text-align: center;}
+.memenu>li>a{  font-family: 'JosefinSans-Regular';float:left;padding: 5px 25px 5px 25px;color:#caccce;font-weight:600;text-decoration:none;text-transform:uppercase;transition:color .4s ease-in-out;-moz-transition:color .4s ease-in-out;-webkit-transition:color .4s ease-in-out;-o-transition:color .4s ease-in-out}
+.memenu>li>.mepanel {
+	position: absolute;
+	display: none;
+	background: #fff;
+	width: 80%;
+	top: 47px;
+	left: 10.7%;
+	z-index: 99;
+	padding: 20px 30px 20px;
+	border: solid 1px #ccc;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.me-one ul{
+	padding:0;
+}
+.me-one ul li {
+  list-style: none;
+  margin: 0 0 10px 0;
+  text-align: left !important;
+  display: block;
+}
+.me-one ul li a{
+	color:#181b2a;
+	font-size:15px;
+	font-weight:600;
+}
+.me-one ul li a:hover{
+	text-decoration:none;
+	color:#ff5d56;
+}
+.me-one h4{
+	color:#00a0dc;
+	font-size:1.3em;
+	font-weight:600;
+	text-align:left;
+}
+.memenu .mepanel ul{margin:0;padding:0;margin-top: 15px;}
+.memenu .mepanel img{width:100%;border:solid 1px #dedede;cursor:pointer;-webkit-transition:border .3s linear;-moz-transition:border .3s linear;-o-transition:border .3s linear;transition:border .3s linear}.memenu .mepanel img:hover{border:solid 1px #777}.memenu form.contact input,.memenu form.contact textarea{font-family:Calibri,Arial;font-size:16px;color:#444;outline:0}
+.mepanel .row{width:100%;margin-top:15px}
+.mepanel .row:first-child{margin-top:0}
+.mepanel .row:before,.mepanel .row:after{display:table;content:"";line-height:0}
+.mepanel .row:after{clear:both}
+.mepanel .row .col1,.mepanel .row .col2,.mepanel .row .col3,.mepanel .row .col4,.mepanel .row .col5,.mepanel .row .col6{display:block;width:100%;min-height:20px;float:left;margin-left:2.127659574468085%;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}
+.mepanel .row [class*="col"]:first-child{margin-left:0}
+.mepanel .row .col1 {
+  width: 31.91%;
+}
+.mepanel .row .col2{width:31.914893617021278%}
+.mepanel .row .col3{width:48.93617021276595%}
+.mepanel .row .col4{width:65.95744680851064%}
+.mepanel .row .col5{width:82.97872340425532%}
+.mepanel .row .col6{width:100%}
+.memenu>li.showhide{display:none;width:100%;height:50px;cursor:pointer;color:#555;border-bottom:solid 1px rgba(0,0,0,0.1);background:#00a0dc;}
+.memenu>li.showhide span.title{margin:15px 0 0 25px;float:left}.memenu>li.showhide span.icon1:after{position:absolute;content:"";right:25px;top:15px;height:3px;width:25px;font-size:50px;border-top:3px solid #fff;border-bottom:3px solid #fff;z-index:1}
+.memenu>li.showhide span.icon2:after{position:absolute;content:"";right:25px;top:27px;height:3px;width:25px;font-size:50px;border-top:3px solid #fff;border-bottom:3px solid #fff;z-index:1}	
+.skyblue li>a,.skyblue>li.showhide span{color:#caccce}
+.skyblue>li:hover>a,.skyblue>li.active>a,.skyblue .dropdown li:hover>a{color:#00a0dc}.
+skyblue .mepanel img:hover,.skyblue form.contact input[type="text"]:focus,.skyblue form.contact textarea:focus{border:solid 1px #0194be}
+.skyblue form.contact input[type="submit"]{background:#0194be}
+@media (max-width: 1280px){
+.memenu>li>a {
+  padding: 0px 25px 0px 25px;
+}
+}
+@media (max-width: 991px){
+.memenu>li>a {
+  padding: 0px 9px 0px 9px;
+}
+}
+@media(max-width:768px){
+	.memenu>li{display:block;width:100%;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;text-align:center;}
+	.memenu>li:hover,.memenu>li.active{border-top:0;text-align:center;}
+	.memenu>li>a{padding:15px 25px}
+	.memenu>li:hover>a,.memenu>li.active>a{padding:15px 25px;text-align:center;}
+	.memenu a{width:100%;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box}
+	.memenu .dropdown,.memenu .dropdown li .dropdown{width:100%;display:none;left:0;border-left:0;position:static;border:0;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box}
+	.memenu .dropdown li{background:#fff!important;border:0}
+	.memenu .dropdown>li>a{padding-left:40px!important}
+	.memenu>li>.mepanel {
+		position: static;
+		margin-top: 50px;
+		border: none;
+		width: 100%;
+		}
+	.me-one ul li {
+		text-align: center !important;
+	}
+	.mepanel .row{
+		margin:0;
+	}
+	.mepanel .row [class*="col"]{float:none;display:block;width:100%;margin-left:0;margin-top:15px;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}
+	.mepanel .row:first-child [class*="col"]:first-child{margin-top:0}
+	.mepanel .row{margin-top:0}.black{background:#222}
+	.memenu>li.showhide {
+  width: 13%;
+  height: 39px;
+  margin: 0 auto;
+}
+	.memenu>li.showhide span.title { margin: 10px 0 0 18px;  float: left; display:none;}
+	.memenu>li.showhide span.icon1:after { top: 10px;right: 46.5%;}
+	.memenu>li.showhide span.icon2:after { top: 22px;right: 46.5%;}
+	.skyblue li>a, .skyblue>li.showhide span { color: #4B4B4B;}
+	.me-one h4 { text-align: center;}
+	.memenu>li.showhide span.icon1:after { }
+}
+@media (max-width: 640px){
+.memenu>li.showhide {
+  width: 18%;
+}
+.memenu>li.showhide span.icon1:after { top: 10px;right: 44.6%;}
+	.memenu>li.showhide span.icon2:after { top: 22px;right: 44.6%;}
+}
+@media (max-width: 480px){
+.memenu>li.showhide {
+  width: 25%;
+  margin: 0;
+}
+.memenu>li{text-align:left;}
+.memenu>li>a, .memenu>li.active>a {
+  padding: 12px 0px;
+}
+.memenu>li:hover>a, .memenu>li.active>a {
+  padding: 12px 0px;
+  text-align:left;
+}
+.memenu>li.showhide span.icon1:after {
+  left: 4.5%;
+}
+.memenu>li.showhide span.icon2:after {
+left: 4.5%;
+}
+.memenu>li>.mepanel {
+  padding: 9px 0px 0px;
+}
+.me-one h4 {
+  text-align: left;
+}
+.me-one ul li {
+  text-align:left !important;
+}
+}
+@media (max-width:320px){
+.memenu>li.showhide {
+  width: 40%;
+  margin: 0;
+}
+.memenu>li>a, .memenu>li.active>a {
+  padding: 10px 0px;
+}
+.memenu>li:hover>a, .memenu>li.active>a {
+  padding: 10px 0px;
+}
+.memenu>li.showhide span.icon1:after {
+  left: 8.5%;
+}
+.memenu>li.showhide span.icon2:after {
+  left: 8.5%;
+}
+.glyphicon-shopping-cart:before {
+  margin-left:3px;
+  font-size: 1em;
+}
+.flexslider .slides > li {
+  height: 252px!important;
+}
+}
+	
