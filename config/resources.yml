@@ -6,6 +6,7 @@ FrontendBucket:
      BucketName: ${self:custom.s3.bucketName}
      WebsiteConfiguration:
        IndexDocument: ${self:custom.s3.index}
+       ErrorDocument: ${self:custom.s3.index}
 ProductTable:
   Type: AWS::DynamoDB::Table
   Properties:
