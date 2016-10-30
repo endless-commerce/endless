@@ -15,6 +15,8 @@ package:
   exclude:
     - README.md
     - .git
+    - frontend
+    - node_modules
 
 provider: 
   name: aws
@@ -40,6 +42,12 @@ functions:
     events:
       - http:
           path: product/hello
+          method: get
+  productLoad:
+    handler: core/product.load
+    events:
+      - http:
+          path: product/load
           method: get
   productAdd:
     handler: core/product.add
