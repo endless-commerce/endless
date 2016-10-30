@@ -24,7 +24,7 @@ endless.config(function($routeProvider, $locationProvider) {
         templateUrl : "template/checkout.html"
     })
     .when("/product/:productid?", {
-        templateUrl : "template/product.htm",
+        templateUrl : "template/single.html",
         controller : "productCtrl"
     })
     .otherwise({
@@ -34,15 +34,8 @@ endless.config(function($routeProvider, $locationProvider) {
     $locationProvider.html5Mode(true);
 });
 
-/*endless.controller('Hello', function($scope, $http) {
-    $http.get('https://jdmkge31x4.execute-api.eu-west-1.amazonaws.com/prod/product/get/1').
-        then(function(response) {
-            $scope.greeting = response.data;
-        });
-});*/
-
 endless.controller("productCtrl", function ($scope, $http) {
-    $http.get('https://jdmkge31x4.execute-api.eu-west-1.amazonaws.com/prod/product/view/1').
+    $http.get('https://75rbnf6r07.execute-api.us-east-1.amazonaws.com/dev/product/hello').
         then(function(response) {
             $scope.product = response.data;
         });
