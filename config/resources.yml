@@ -9,7 +9,7 @@ FrontendBucket:
 ProductTable:
   Type: AWS::DynamoDB::Table
   Properties:
-    TableName: ${self:custom.prefix}-product
+    TableName: ${self:custom.dynamodb.prefix}-product
     AttributeDefinitions:
       - AttributeName: productID
         AttributeType: S
@@ -22,7 +22,7 @@ ProductTable:
 CustomerTable:
   Type: AWS::DynamoDB::Table
   Properties:
-    TableName: ${self:custom.prefix}-customer
+    TableName: ${self:custom.dynamodb.prefix}-customer
     AttributeDefinitions:
       - AttributeName: customerID
         AttributeType: S
@@ -35,7 +35,7 @@ CustomerTable:
 CartTable:
   Type: AWS::DynamoDB::Table
   Properties:
-    TableName: ${self:custom.prefix}-cart
+    TableName: ${self:custom.dynamodb.prefix}-cart
     AttributeDefinitions:
       - AttributeName: cartID
         AttributeType: S
@@ -61,8 +61,8 @@ DynamoDBIamPolicy:
             - dynamodb:GetItem
             - dynamodb:PutItem
           Resource:
-            - arn:aws:dynamodb:*:*:table/${self:custom.prefix}-product
-            - arn:aws:dynamodb:*:*:table/${self:custom.prefix}-customer
-            - arn:aws:dynamodb:*:*:table/${self:custom.prefix}-cart
+            - arn:aws:dynamodb:*:*:table/${self:custom.dynamodb.prefix}-product
+            - arn:aws:dynamodb:*:*:table/${self:custom.dynamodb.prefix}-customer
+            - arn:aws:dynamodb:*:*:table/${self:custom.dynamodb.prefix}-cart
     Roles:
       - Ref: IamRoleLambdaExecution

@@ -17,6 +17,7 @@ package:
     - .git
     - frontend
     - node_modules
+    - data
 
 provider: 
   name: aws
@@ -26,7 +27,8 @@ provider:
 
 plugins:
   - s3-deploy-plugin
-    
+  - dynamodb-loaddata-plugin
+   
 resources:
   Resources: ${file(config/resources.yml)}    
    
@@ -42,12 +44,6 @@ functions:
     events:
       - http:
           path: product/hello
-          method: get
-  productLoad:
-    handler: core/product.load
-    events:
-      - http:
-          path: product/load
           method: get
   productAdd:
     handler: core/product.add
