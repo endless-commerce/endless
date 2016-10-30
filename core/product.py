@@ -1,12 +1,38 @@
 import json
 import boto3
-import yaml
+import decimal
 
-with open('../config/config.yml', 'r') as f:
-    config = yaml.load(f)
+dynamodb = boto3.resource('dynamodb')
+table = dynamodb.Table('dev-demostore-product')
 
-dynamodb_client = boto3.client('dynamodb')
-table_name = config["prefix"] + '-product'
+# LoadData Function
+def load(event, context):
+    body = {
+        "message": "ok load"
+    }
+
+    with open("core/moviedata.json") as json_file:
+        movies = json.load(json_file, parse_float = decimal.Decimal)
+        for movie in movies:
+            year = int(movie['year'])
+            title = movie['title']
+            info = movie['info']
+        
+            table.put_item(
+               Item={
+                   'year': year,
+                   'productID': title,
+                   'info': info,
+                }
+            )
+
+    response = {
+        "statusCode": 200,
+        "body": json.dumps(body)
+    };
+
+    return response
+
 
 def hello(event, context):
     body = {
@@ -19,27 +45,4 @@ def hello(event, context):
         "body": json.dumps(body)
     };
 
-    return response
-
-    # Use this code if you don't use the http event with the LAMBDA-PROXY integration
-    """
-    return {
-        "message": "Go Serverless v1.0! Your function executed successfully!",
-        "event": event
-    }
-    """
-    
-def add(event, context):
-    body = {
-        "message": "Product added"
-    }
-    
-    item = {'productID': {'S': '123'},'name': {'S': 'Product Name'},'price': {'N': '10.23'},'description': {'S': 'Product description'}}
-    dynamodb_client.put_item(TableName=table_name, Item=item)
-    
-    response = {
-        "statusCode": 200,
-        "body": json.dumps(body)
-    };
-    
     return response

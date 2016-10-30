@@ -32,7 +32,7 @@ What we would like to develop :
 
 * ##### Release 0.1 :
   * Find a way to export Angular frontend to S3 -> **Done**
-  * Load sample data
+  * Load sample data -> **Done**
   * A product list page
   * A product page
   * Add to cart function
