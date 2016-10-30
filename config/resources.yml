@@ -3,11 +3,9 @@
 FrontendBucket:
   Type: AWS::S3::Bucket
   Properties:
-     BucketName: ${self:custom.prefix}-frontend
-MediaBucket:
-  Type: AWS::S3::Bucket
-  Properties:
-     BucketName: ${self:custom.prefix}-media
+     BucketName: ${self:custom.s3.bucketName}
+     WebsiteConfiguration:
+       IndexDocument: ${self:custom.s3.index}
 ProductTable:
   Type: AWS::DynamoDB::Table
   Properties:

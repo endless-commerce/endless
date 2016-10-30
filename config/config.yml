@@ -2,3 +2,9 @@
 
 projectName: demostore
 prefix: ${self:provider.stage}-${self:custom.projectName}
+
+s3:
+  localDir: frontend
+  bucketName: dev-demostore-frontend
+  acl: public-read
+  index: index.html
