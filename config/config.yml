@@ -1,5 +1,9 @@
 # Configuration file
 
+endless:
+  projectName: demostore
+  prefix: ${opt:stage, self:provider.stage}-${self:custom.endless.projectName}
+
 s3:
   localDir: frontend
   bucketName: dev-demostore-frontend
