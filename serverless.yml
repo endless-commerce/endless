@@ -14,10 +14,10 @@ service: endless
 package:
   exclude:
     - README.md
-    - .git
-    - frontend
-    - node_modules
-    - data
+    - .git/**
+    - frontend/**
+    - node_modules/**
+    - data/**
 
 provider: 
   name: aws
@@ -45,6 +45,18 @@ functions:
       - http:
           path: product/hello
           method: get
+  productView:
+    handler: core/product.view
+    events:
+      - http:
+          path: product/view/{urlkey}
+          method: get
+          integration: lambda
+          cors: true
+          request:
+            parameters:
+              paths:
+                urlkey: true
   customerHello:
     handler: core/customer.hello
     events:

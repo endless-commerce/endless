@@ -34,8 +34,8 @@ endless.config(function($routeProvider, $locationProvider) {
     $locationProvider.html5Mode(true);
 });
 
-endless.controller("productCtrl", function ($scope, $http) {
-    $http.get('https://75rbnf6r07.execute-api.us-east-1.amazonaws.com/dev/product/hello').
+endless.controller("productCtrl", function ($scope, $http, $routeParams) {
+    $http.get('https://tul86qgc1l.execute-api.us-east-1.amazonaws.com/dev/product/view/'+$routeParams.productid).
         then(function(response) {
             $scope.product = response.data;
         });
