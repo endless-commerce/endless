@@ -20,10 +20,8 @@ service: cart
 provider:
   name: aws
   runtime: nodejs4.3
-
-# you can overwrite defaults here
-#  stage: dev
-#  region: us-east-1
+  stage: ${file(../../../config/config.yml):provider.stage}
+  region: ${file(../../../config/config.yml):provider.region}
 
 # you can add statements to the Lambda function's IAM Role here
 #  iamRoleStatements:

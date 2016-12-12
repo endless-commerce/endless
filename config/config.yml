@@ -1,0 +1,7 @@
+# Endless configuration file
+#
+# Add configurations that are common to all your services.
+
+provider:
+  stage: prod
+  region: us-east-1
