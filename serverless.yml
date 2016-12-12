@@ -11,12 +11,15 @@
 
 service: endless
 
+frameworkVersion: ">=1.0.0 <2.0.0"
+
 package:
   exclude:
     - README.md
     - .git/**
     - frontend/**
     - node_modules/**
+    - .serverless_plugins/**
     - data/**
 
 provider: 
