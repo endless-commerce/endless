@@ -1,0 +1,12 @@
+# Endless enabled services list
+#
+# Enable service adding a line on this file.
+# Your module need to be in local directory.
+# Other module need to be in community directory.
+#
+# Don't touch the core !
+
+services:
+  - core/product
+  - core/customer
+  - core/cart

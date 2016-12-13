@@ -1,0 +1,7 @@
+# Global configuration file
+#
+# Add configurations that are common to all your services.
+
+provider:
+  stage: dev
+  region: us-east-1

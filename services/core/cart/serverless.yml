@@ -13,17 +13,19 @@
 
 service: cart
 
-# You can pin your service to only deploy with a specific Serverless version
-# Check out our docs for more details
-# frameworkVersion: "=X.X.X"
+frameworkVersion: ">=1.0.0 <2.0.0"
 
 provider:
   name: aws
   runtime: nodejs4.3
+  stage: ${file(../../../config/config.yml):provider.stage}
+  region: ${file(../../../config/config.yml):provider.region}
 
-# you can overwrite defaults here
-#  stage: dev
-#  region: us-east-1
+custom: ${file(config/config.yml)}
+
+functions:
+  hello:
+    handler: functions/handler.hello
 
 # you can add statements to the Lambda function's IAM Role here
 #  iamRoleStatements:
@@ -52,10 +54,6 @@ provider:
 #  exclude:
 #    - exclude-me.js
 #    - exclude-me-dir/**
-
-functions:
-  hello:
-    handler: handler.hello
 
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
