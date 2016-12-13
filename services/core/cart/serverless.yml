@@ -21,6 +21,8 @@ provider:
   stage: ${file(../../../config/config.yml):provider.stage}
   region: ${file(../../../config/config.yml):provider.region}
 
+custom: ${file(config/config.yml)}
+
 # you can add statements to the Lambda function's IAM Role here
 #  iamRoleStatements:
 #    - Effect: "Allow"
